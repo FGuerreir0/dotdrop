@@ -1,0 +1,122 @@
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  height: 30vh;
+}
+
+/* Main Layout */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+/* Rules Section */
+.section-rules {
+  position: relative;
+  border-radius: 12px;
+  padding: 2rem;
+  background: #ffffffe1; 
+  z-index: 1;
+  text-align: left;
+}
+
+.section-rules::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 3px; 
+  border-radius: inherit;
+  background: linear-gradient(90deg, red, green, blue, red);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.section-rules h2 {
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+.section-rules ul {
+  list-style: none;
+    padding-left: 0;
+}
+
+.section-rules li {
+  position: relative;
+  font-weight: bold;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.section-rules li::before {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 10px;
+  background-color: #47ff47; 
+}
+
+
+.section-rules li:nth-child(1)::before {
+  background-color: #ff4747 !important; 
+}
+
+.section-rules li:nth-child(3)::before {
+  background-color: #4747ff !important;
+}
+
+.section-rules p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0.3rem 0 0.8rem 0;
+}
+
+.pixel-hr {
+  display: flex;
+  justify-content: center; 
+  margin: 3rem 0 1.7rem 0;
+  gap: 0;
+
+}
+
+.pixel-hr .pixel {
+  width: 11px;
+  height: 11px;
+}
+
+.section-rules h4 {
+  font-weight: bold;
+  color: #000000;
+
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.main-pixel-buttons{
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}

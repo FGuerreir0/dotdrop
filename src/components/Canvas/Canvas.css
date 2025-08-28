@@ -1,0 +1,14 @@
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  flex-grow: 1;
+}
+
+.canvas{
+  border: "1px solid #ccc"; 
+  display: block; 
+  background-color: #fff;
+}

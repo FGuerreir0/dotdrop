@@ -1,0 +1,25 @@
+.navbar{
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  width: 100vw;
+}
+
+.navbar img {
+  height: 40px;
+  margin-right: 16px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+}
