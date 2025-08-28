@@ -1,6 +1,7 @@
 # 🎨 DotDrop
 
-A collaborative pixel-art canvas inspired by r/place
+A collaborative pixel-art canvas inspired by r/place.
+
 Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence.
 
 ## 🚀 Features
@@ -32,12 +33,17 @@ Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence
 - Database: Supabase cloud project.
 
 ## 🛡️ Roadmap
+ - [X] Create main app
+ - [X] Create Homepage and Canvas page
+ - [X] Implement color palette
+ - [ ] Add Express API
+ - [ ] Add first ws interaction to save and retrieve pixels from database
  - [ ] Save pixels on Supabase
  - [ ] Show saved pixels colors
- - [ ] Authentication (only logged-in users can paint).
  - [ ] Pixel cooldown timer (prevent spamming).
  - [ ] Bigger grid with zoom & pan.
  - [ ] Public live gallery.
+ - [ ] Authentication (only logged-in users can paint).
 
 ## 🛠️ Usage
 ```bash
