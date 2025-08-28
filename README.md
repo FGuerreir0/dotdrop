@@ -1,22 +1,46 @@
-# Famous Portugal
+# 🎨 DotDrop
 
-## Local Run:
+A collaborative pixel-art canvas inspired by r/place
+Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence.
+
+## 🚀 Features
+
+- 🖌️ Interactive Pixel Canvas — click or drag to paint pixels.
+- 🎨 Color Palette — select from a set of colors.
+- ⚡ High Performance — uses canvas instead of thousands of divs.
+- 🌍 Real-time Updates — via WebSockets.
+- 💾 Persistence — store pixel state in Supabase.
+
+## 📦 Tech Stack
+- Vite.js — lightning fast frontend bundler.
+- React — component-based UI.
+- Canvas API — efficient pixel rendering.
+- ws — WebSocket backend for real-time updates.
+- Supabase — database + authentication + hosting.
+
+## 🎨 Usage
+
+- Click on a pixel to paint it.
+- Hold mouse and drag to paint multiple pixels.
+- Pixel updates are broadcast to all connected clients via WebSocket.
+- Supabase keeps the full grid state persisted.
+
+## 🌍 Deployment
+
+- Frontend: Deploy to Vercel or Netlify.
+- Backend (WebSocket): Deploy with Heroku, Fly.io, or a VPS.
+- Database: Supabase cloud project.
+
+## 🛡️ Roadmap
+ - [ ] Save pixels on Supabase
+ - [ ] Show saved pixels colors
+ - [ ] Authentication (only logged-in users can paint).
+ - [ ] Pixel cooldown timer (prevent spamming).
+ - [ ] Bigger grid with zoom & pan.
+ - [ ] Public live gallery.
+
+## 🛠️ Usage
 ```bash
     npm run start
 ```
 
-## Deploy Run:
-```bash
-    npm run install
-    npm run build
-    npm run start-production
-```
-
-Currenctly deployed at: 
-- https://dashboard.render.com/web/srv-ctuqvopopnds73c8je60
-- https://famousportugal.onrender.com/
-
-
-Database:
-- SQL
-- https://supabase.com/dashboard/project/nuqrltjaocrgreopryex
