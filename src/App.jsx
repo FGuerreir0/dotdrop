@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
 import Canvas from './components/Canvas/Canvas';
 import Navbar from './components/Navbar/Navbar';
-import useBackendHook  from './hook/backendhook.js'
+import useBackendHook  from './hook/Backendhook.js'
 
 function App() {
   const { online } = useBackendHook();
