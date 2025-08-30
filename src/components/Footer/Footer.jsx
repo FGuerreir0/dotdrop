@@ -5,7 +5,7 @@ function Footer() {
       <footer className="app-footer">
 
  <section className="section-intro">
-            <quote>A collaborative pixel-art experience inspired by r/place.</quote>
+            <p>A collaborative pixel-art experience inspired by r/place.</p>
           </section>
         <p className="footer-text">FG © {new Date().getFullYear()}</p>
       </footer>

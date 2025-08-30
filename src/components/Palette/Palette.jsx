@@ -1,7 +1,7 @@
 function Palette({ onColorSelect, selectedColor }) {
   return (
       <div style={{ display: "flex", gap: "6px", marginBottom: "8px", position: "absolute", bottom: "120px" }}>
-        {["#FF0000", "#00FF00", "#0000FF", "#000000", "#FFFFFF"].map((c) => (
+        {["#FF4500", "#FFA800", "#FFD635", "#00A368", "#7EED56", "#2450A4", "#3690EA", "#51E9F4", "#811E9F", "#B44AC0", "#FF99AA", "#9C6926", "#000000", "#898D90", "#FFFFFF"].map((c) => (
           <button
             key={c}
             onClick={() => onColorSelect(c)}

@@ -1,16 +1,15 @@
-/* Header */
 .app-header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 35px;
 }
 
 .logo {
   height: 30vh;
 }
 
-/* Main Layout */
 .app-main {
   flex: 1;
   display: flex;
@@ -21,7 +20,6 @@
   gap: 2rem;
 }
 
-/* Rules Section */
 .section-rules {
   position: relative;
   border-radius: 12px;
@@ -78,7 +76,6 @@
   margin-right: 10px;
   background-color: #47ff47; 
 }
-
 
 .section-rules li:nth-child(1)::before {
   background-color: #ff4747 !important; 

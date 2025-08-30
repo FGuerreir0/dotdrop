@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./public/logo.png" alt="App Screenshot" width="500"/>
+    <img src="./public/logo.png" alt="App Logo" width="500"/>
 </p>
 
 A collaborative pixel-art canvas inspired by r/place.

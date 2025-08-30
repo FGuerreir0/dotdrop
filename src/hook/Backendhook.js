@@ -1,0 +1,42 @@
+import { useEffect, useRef, useState } from "react";
+
+function useBackendHook() {
+  const [online, setOnline] = useState(0);
+  const wsRef = useRef(null);
+
+  useEffect(() => {
+    let ws;
+
+    function connect() {
+      ws = new WebSocket("ws://localhost:4000");
+      wsRef.current = ws;
+
+      ws.onopen = () => {
+        console.log("✅ Connected to DotDrop WS");
+      };
+
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        console.log(data)
+        if (data.type === "presence") {
+          setOnline(data.online);
+        }
+        if (data.type === "pixel") {
+          console.log("🎨 Pixel update:", data);
+        }
+      };
+
+      ws.onclose = () => {
+        console.log("⚠️ Disconnected from WS, retrying...");
+        setTimeout(connect, 2000); // auto-reconnect after 2s
+      };
+    }
+
+    connect();
+    return () => ws && ws.close();
+  }, []);
+
+  return { online };
+}
+
+export default useBackendHook;
