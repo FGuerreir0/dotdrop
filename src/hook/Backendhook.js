@@ -8,7 +8,7 @@ function useBackendHook() {
     let ws;
 
     function connect() {
-      ws = new WebSocket("ws://localhost:4000");
+      ws = new WebSocket("wss://dotdrop-ws.onrender.com");
       wsRef.current = ws;
 
       ws.onopen = () => {

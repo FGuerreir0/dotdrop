@@ -1,11 +1,24 @@
- 
+/* eslint-disable no-undef */
 import { WebSocketServer } from "ws";
-//import { createClient } from "@supabase/supabase-js";
-import dotenv from 'dotenv';
+import http from "http";
+import dotenv from "dotenv";
 dotenv.config();
 
-const wss = new WebSocketServer({ port: 4000 });
-//const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
+// Use Render's dynamic port or fallback to 4000
+const PORT = process.env.PORT || 3000;
+
+// Create HTTP server (for status endpoint)
+const server = http.createServer((req, res) => {
+  if (req.url === "/status") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ status: "ok", online: usersOnline.size }));
+  } else {
+    res.writeHead(404);
+    res.end("Not found");
+  }
+});
+
+const wss = new WebSocketServer({ server });
 
 let usersOnline = new Set();
 
@@ -14,31 +27,19 @@ wss.on("connection", (ws) => {
   usersOnline.add(ws);
   broadcast({ type: "presence", online: usersOnline.size });
 
+  // Example: handle messages if you want
   /*
   ws.on("message", async (msg) => {
     try {
       const data = JSON.parse(msg);
-
       if (data.type === "pixel") {
-        const { x, y, color, user } = data;
-
-        // Store in DB
-        await supabase.from("pixels").upsert({ x, y, color, updated_by: user });
-
-        // Broadcast to all clients
-        broadcast({ type: "pixel", x, y, color, user });
+        // handle pixel
       }
-
-      if (data.type === "hello") {
-        // Example handshake: store user info
-        ws.user = data.user;
-        console.log(`👤 ${data.user.name} joined`);
-      }
-
     } catch (err) {
-      console.error("Error handling message", err);
+      console.error(err);
     }
-  });*/
+  });
+  */
 
   ws.on("close", () => {
     usersOnline.delete(ws);
@@ -48,7 +49,6 @@ wss.on("connection", (ws) => {
 
 function broadcast(message) {
   const json = JSON.stringify(message);
-  console.log("Broadcasting:", json);
   for (const client of wss.clients) {
     if (client.readyState === 1) {
       client.send(json);
@@ -56,4 +56,7 @@ function broadcast(message) {
   }
 }
 
-console.log("🚀 DotDrop WebSocket running on ws://localhost:4000");
+server.listen(PORT, () => {
+  console.log(`🚀 DotDrop WebSocket + HTTP server running on port ${PORT}`);
+  console.log(`🌐 Status endpoint: http://localhost:${PORT}/status`);
+});
