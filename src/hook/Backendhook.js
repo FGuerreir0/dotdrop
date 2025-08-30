@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+const wsUrl = import.meta.env.VITE_WS_URL;
 
 function useBackendHook() {
   const [online, setOnline] = useState(0);
@@ -8,7 +9,7 @@ function useBackendHook() {
     let ws;
 
     function connect() {
-      ws = new WebSocket("wss://dotdrop-ws.onrender.com");
+      ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 
       ws.onopen = () => {
