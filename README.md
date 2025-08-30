@@ -40,8 +40,8 @@ Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence
  - [X] Create main app
  - [X] Create Homepage and Canvas page
  - [X] Implement color palette
- - [ ] Add Express API
- - [ ] Add first ws interaction to save and retrieve pixels from database
+ - [X] Add Server and /status
+ - [X] Add first ws interaction
  - [ ] Save pixels on Supabase
  - [ ] Show saved pixels colors
  - [ ] Pixel cooldown timer (prevent spamming).
