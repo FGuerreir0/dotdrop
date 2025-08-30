@@ -59,7 +59,7 @@ function Main() {
       </section>
       <div className="main-pixel-buttons">
         <button className="pixel-button" onClick={() => navigate('/canvas')}>Start</button>
-        <button className="pixel-button" onClick={() => window.open("https://www.buymeacoffee.com/", "_blank")}>☕ Buy me a coffee</button>
+        <button className="pixel-button" onClick={() => window.open("https://buymeacoffee.com/fabioguerreiro", "_blank")}>☕ Buy me a coffee</button>
       </div>
     </main>
     </>
