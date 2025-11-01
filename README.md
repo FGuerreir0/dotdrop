@@ -10,9 +10,8 @@ Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence
 
 ## Features
 
-- 🖌️ Interactive Pixel Canvas — click or drag to paint pixels.
+- 🖌️ Interactive Pixel Canvas — click to paint pixels.
 - 🎨 Color Palette — select from a set of colors.
-- ⚡ High Performance — uses canvas instead of thousands of divs.
 - 🌍 Real-time Updates — via WebSockets.
 - 💾 Persistence — store pixel state in Supabase.
 
@@ -26,15 +25,14 @@ Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence
 ## Usage
 
 - Click on a pixel to paint it.
-- Hold mouse and drag to paint multiple pixels.
 - Pixel updates are broadcast to all connected clients via WebSocket.
 - Supabase keeps the full grid state persisted.
 
 ## Deployment
 
-- Frontend: Deploy to Vercel or Netlify.
-- Backend (WebSocket): Deploy with Heroku, Fly.io, or a VPS.
-- Database: Supabase cloud project.
+- Frontend: Netlify.
+- Backend (WebSocket): Render.
+- Database: Supabase.
 
 ## Roadmap
  - [X] Create main app
@@ -48,7 +46,6 @@ Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence
  - [ ] Improve Front-end & mobile usage.
  - [ ] Bigger grid with zoom & pan.
  - [ ] Public live gallery.
- - [ ] Authentication (only logged-in users can paint).
 
 ## Usage
 
