@@ -45,7 +45,7 @@ Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence
  - [ ] Pixel cooldown timer (prevent spamming).
  - [ ] Improve Front-end & mobile usage.
  - [ ] Bigger grid with zoom & pan.
- - [ ] Public live gallery.
+ - [ ] Public live gallery showing monthly canvas.
 
 ## Usage
 
