@@ -5,12 +5,310 @@
   justify-content: center;
   user-select: none;
   flex-grow: 1;
+  position: relative;
 }
 
 .canvas{
-  border: "1px solid #ccc"; 
+  border: 4px solid #000000;
   display: block; 
   background-color: #fff;
+  transition: opacity 0.2s ease;
+  box-shadow: 4px 4px 0 #666666;
+}
+
+.canvas-disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+/* Zoom Controls */
+.zoom-controls {
+  position: fixed;
+  display: flex;
+  gap: 8px;
+  background: #ffffff;
+  border: 4px solid #000000;
+  padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+  box-shadow: 4px 4px 0 #666666;
+  z-index: 100;
+  cursor: move;
+  user-select: none;
+}
+
+.zoom-controls-column {
+  flex-direction: column;
+}
+
+.zoom-controls-row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.zoom-controls-row .drag-handle {
+  border-bottom: none;
+  border-right: 2px solid #e0e0e0;
+  margin-bottom: 0;
+  margin-right: 0.5rem;
+  padding: 0 0.25rem;
+}
+
+.zoom-controls-row .zoom-level {
+  margin: 0 4px;
+}
+
+.zoom-controls-row .reset-btn,
+.zoom-controls-row .fullscreen-btn {
+  margin-top: 0;
+  margin-left: 4px;
+}
+
+.zoom-controls.dragging {
+  opacity: 0.9;
+  cursor: grabbing;
+}
+
+.drag-handle {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #666666;
+  cursor: grab;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.zoom-controls.dragging .drag-handle,
+.palette-container.dragging .drag-handle {
+  cursor: grabbing;
+}
+
+.zoom-controls::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 4px solid #cccccc;
+  pointer-events: none;
+}
+
+.zoom-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 3px solid #000000;
+  outline-offset: -6px;
+  position: relative;
+}
+
+.zoom-btn::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 3px solid #666666;
+  pointer-events: none;
+}
+
+.zoom-btn:hover {
+  background: #1a1a1a;
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 #666666;
+}
+
+.zoom-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #666666;
+}
+
+.zoom-level {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  color: #000000;
+  text-align: center;
+  padding: 0.5rem 0;
+  letter-spacing: 1px;
+  background: #f5f5f5;
+  border: 2px solid #000000;
+  margin: 4px 0;
+}
+
+.reset-btn {
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
+.fullscreen-btn {
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
+.canvas-container:fullscreen {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.canvas-container:fullscreen .canvas {
+  max-width: calc(100vw - 150px);
+  max-height: calc(100vh - 200px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* Pixel Tooltip */
+.pixel-tooltip {
+  position: absolute;
+  background: #ffffff;
+  border: 4px solid #000000;
+  box-shadow: 4px 4px 0 #666666;
+  padding: 0;
+  z-index: 1000;
+  pointer-events: none;
+  min-width: 180px;
+}
+
+.pixel-tooltip::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 4px solid #cccccc;
+  pointer-events: none;
+}
+
+.tooltip-header {
+  background: #000000;
+  color: #ffffff;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 3px solid #666666;
+}
+
+.tooltip-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.tooltip-content {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  gap: 1rem;
+}
+
+.tooltip-key {
+  color: #666666;
+  letter-spacing: 1px;
+}
+
+.tooltip-value {
+  color: #000000;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.tooltip-color-preview {
+  width: 100%;
+  height: 30px;
+  border: 3px solid #000000;
+  margin-top: 0.25rem;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.cooldown-indicator {
+  position: fixed;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 4px solid #000000;
+  padding: 1rem 1.5rem;
+  box-shadow: 4px 4px 0 #666666;
+  z-index: 100;
+  min-width: 280px;
+}
+
+.cooldown-indicator::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 4px solid #cccccc;
+  pointer-events: none;
+}
+
+.cooldown-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.cooldown-label {
+  font-size: 0.7rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cooldown-timer {
+  font-size: 1rem;
+  color: #000000;
+  font-weight: bold;
+  animation: blinkTimer 1s ease-in-out infinite;
+}
+
+@keyframes blinkTimer {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.3; }
+}
+
+.cooldown-bar {
+  width: 100%;
+  height: 16px;
+  background: #e0e0e0;
+  border: 3px solid #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.cooldown-progress {
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #000000,
+    #000000 4px,
+    #333333 4px,
+    #333333 8px
+  );
+  transition: width 1s linear;
+  border-right: 2px solid #666666;
 }
 
 .loading-overlay {
@@ -40,4 +338,158 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .canvas-container {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  .canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .zoom-controls {
+    top: 80px;
+    right: 10px;
+    padding: 0.5rem;
+    gap: 6px;
+  }
+
+  .zoom-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .zoom-level {
+    font-size: 0.5rem;
+    padding: 0.4rem 0;
+  }
+
+  .cooldown-indicator {
+    bottom: 140px;
+    min-width: 240px;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .cooldown-label {
+    font-size: 0.6rem;
+  }
+
+  .cooldown-timer {
+    font-size: 0.85rem;
+  }
+
+  .cooldown-bar {
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .canvas-container {
+    padding: 0.5rem;
+  }
+
+  .zoom-controls {
+    top: 75px;
+    right: 5px;
+    padding: 0.4rem;
+    gap: 5px;
+    border: 3px solid #000000;
+  }
+
+  .zoom-controls::before {
+    inset: -6px;
+    border: 3px solid #cccccc;
+  }
+
+  .zoom-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    border: 2px solid #ffffff;
+    outline: 2px solid #000000;
+    outline-offset: -4px;
+  }
+
+  .zoom-btn::before {
+    inset: -4px;
+    border: 2px solid #666666;
+  }
+
+  .zoom-level {
+    font-size: 0.45rem;
+    padding: 0.3rem 0;
+  }
+
+  .reset-btn {
+    font-size: 1.2rem;
+  }
+  
+  .fullscreen-btn {
+    font-size: 1.1rem;
+  }
+
+  .pixel-tooltip {
+    min-width: 150px;
+    border: 3px solid #000000;
+  }
+
+  .pixel-tooltip::before {
+    inset: -6px;
+    border: 3px solid #cccccc;
+  }
+
+  .tooltip-header {
+    padding: 0.4rem;
+  }
+
+  .tooltip-label {
+    font-size: 0.5rem;
+  }
+
+  .tooltip-content {
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .tooltip-row {
+    font-size: 0.5rem;
+  }
+
+  .tooltip-color-preview {
+    height: 24px;
+    border: 2px solid #000000;
+  }
+
+  .cooldown-indicator {
+    bottom: 120px;
+    min-width: 200px;
+    padding: 0.6rem 1rem;
+    border: 3px solid #000000;
+  }
+
+  .cooldown-indicator::before {
+    inset: -6px;
+    border: 3px solid #cccccc;
+  }
+
+  .cooldown-label {
+    font-size: 0.5rem;
+  }
+
+  .cooldown-timer {
+    font-size: 0.75rem;
+  }
+
+  .cooldown-bar {
+    height: 10px;
+    border: 2px solid #000000;
+  }
 }

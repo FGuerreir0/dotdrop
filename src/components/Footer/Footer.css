@@ -1,10 +1,66 @@
 .app-footer {
   text-align: center;
-  padding: 1rem;
-  border-top: 1px solid #adadad;
+  padding: 1.5rem;
+  border-top: 4px solid #000000;
   margin-top: 2rem;
   font-size: 0.7rem;
   color: #333;
+  background: #ffffff;
+  box-shadow: 0 -4px 0 #cccccc;
+  position: relative;
+}
+
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  border-top: 4px solid #666666;
+}
+
+.section-intro {
+  margin-bottom: 0.5rem;
+}
+
+.section-intro p {
+  color: #666;
+  font-size: 0.65rem;
+}
+
+.footer-text {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 1.2rem;
+    font-size: 0.6rem;
+    border-top: 3px solid #000000;
+  }
+
+  .app-footer::before {
+    top: -6px;
+    border-top: 3px solid #666666;
+  }
+
+  .section-intro p {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-footer {
+    padding: 1rem;
+    font-size: 0.55rem;
+    margin-top: 1.5rem;
+  }
+
+  .section-intro p {
+    font-size: 0.5rem;
+  }
 }
 
 

@@ -1,0 +1,139 @@
+.palette-container {
+  display: flex;
+  gap: 6px;
+  position: fixed;
+  flex-wrap: wrap;
+  max-width: 600px;
+  justify-content: center;
+  background: #ffffff;
+  padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+  border: 4px solid #000000;
+  box-shadow: 4px 4px 0 #666666;
+  z-index: 99;
+  cursor: move;
+  user-select: none;
+}
+
+.palette-container-column {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-width: 80px;
+  max-height: 600px;
+}
+
+.palette-container-column .drag-handle {
+  border-bottom: none;
+  border-right: 2px solid #e0e0e0;
+  margin-bottom: 0;
+  margin-right: 0.5rem;
+  padding: 0 0.25rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.palette-container-row {
+  flex-direction: row;
+}
+
+.palette-container.dragging {
+  opacity: 0.9;
+  cursor: grabbing;
+}
+
+.palette-container::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 4px solid #cccccc;
+  pointer-events: none;
+}
+
+.palette-button {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  flex-shrink: 0;
+  border-radius: 0;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #666666;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.palette-button.selected {
+  outline: 2px solid #000000;
+  outline-offset: -4px;
+  border-width: 3px;
+}
+
+.palette-button::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #cccccc;
+  pointer-events: none;
+}
+
+.palette-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #666666;
+}
+
+.palette-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #666666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .palette-container {
+    top: 75px;
+    gap: 5px;
+    padding: 0.6rem;
+  }
+
+  .palette-button {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .palette-container {
+    top: 70px;
+    gap: 4px;
+    padding: 0.5rem;
+    max-width: 95vw;
+    border: 3px solid #000000;
+  }
+
+  .palette-container::before {
+    inset: -6px;
+    border: 3px solid #cccccc;
+  }
+
+  .palette-button {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000000;
+  }
+
+  .palette-button::before {
+    inset: -3px;
+    border: 2px solid #cccccc;
+  }
+}
+
+@media (max-width: 380px) {
+  .palette-container {
+    top: 68px;
+    gap: 3px;
+    padding: 0.4rem;
+  }
+
+  .palette-button {
+    width: 20px;
+    height: 20px;
+  }
+}
