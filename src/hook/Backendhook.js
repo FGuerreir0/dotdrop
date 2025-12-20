@@ -18,17 +18,14 @@ function useBackendHook() {
 
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
-        console.log(data)
+
         if (data.type === "presence") {
           setOnline(data.online);
-        }
-        if (data.type === "pixel") {
-          console.log("🎨 Pixel update:", data);
         }
       };
 
       ws.onclose = () => {
-        console.log("⚠️ Disconnected from WS, retrying...");
+        console.warn("⚠️ Disconnected from WS, retrying...");
         setTimeout(connect, 2000); // auto-reconnect after 2s
       };
     }

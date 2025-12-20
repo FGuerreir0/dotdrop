@@ -10,18 +10,13 @@ import useBackendHook  from './hook/Backendhook.js'
 
 function App() {
   const { online } = useBackendHook();
-
-  const handlePixelClick = ({ x, y, color }) => {
-    console.log(`Pixel at (${x},${y}) painted ${color}`)
-  }
   return (
-
     <Router>
         <Navbar  online={online}/>
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Main/>} />
-          <Route path="/canvas" element={<Canvas width={1218} height={630} pixelSize={7} onPixelClick={handlePixelClick} />} />
+          <Route path="/canvas" element={<Canvas width={1218} height={630} pixelSize={7} />} />
           <Route path="*" element={<Navigate to="/canvas" replace />} />
         </Routes>
         <Footer />
