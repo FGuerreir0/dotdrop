@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 // Rate limiting storage (IP -> last placement timestamp)
 const rateLimitMap = new Map();
-const COOLDOWN_MS = 15000; // 15 seconds
+const COOLDOWN_MS = 5000; // 5 seconds
 
 // Allowed colors (grayscale palette)
 const ALLOWED_COLORS = [

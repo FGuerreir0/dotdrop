@@ -1,7 +1,7 @@
 {
   "name": "DotDrop - Collaborative Pixel Art Canvas",
   "short_name": "DotDrop",
-  "description": "Join the pixel war! Place pixels, defend territory, and create art with thousands of players.",
+  "description": "Join the pixel art battle! Place pixels, defend territory, and create art with thousands of players.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

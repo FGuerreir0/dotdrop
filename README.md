@@ -8,7 +8,7 @@ A real-time collaborative pixel-art canvas inspired by r/place. Join thousands o
 
 Built with React, Canvas API, WebSockets, and Supabase.
 
-🚀 **Live at:** https://dotdropwars.netlify.app/
+🚀 **Live at:** https://dotdrop-art.netlify.app/
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?logo=react)](https://reactjs.org/)

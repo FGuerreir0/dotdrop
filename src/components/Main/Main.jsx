@@ -17,7 +17,7 @@ function Main() {
     <main className="app-main">
       <div className="hero-box">
         <h1 className="main-title">DotDrop</h1>
-        <p className="main-tagline">Collaborative Pixel War</p>
+        <p className="main-tagline">Collaborative Pixel Art Game</p>
         
         <div className="pixel-divider">
           {hrColors.slice(0, 15).map((color, idx) => (
@@ -32,7 +32,7 @@ function Main() {
           </div>
           <div className="rule-line">
             <span className="rule-icon">▪</span>
-            <span>15 second cooldown between placements</span>
+            <span>5 second cooldown between placements</span>
           </div>
           <div className="rule-line">
             <span className="rule-icon">□</span>

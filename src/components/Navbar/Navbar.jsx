@@ -33,7 +33,7 @@ function Navbar({ online }) {
               <img src="/icon.png" alt="Logo Icon" className="logo-icon" />
               <div className="logo-text">
                 <img src="/name.png" alt="Logo Name" className="logo-name" />
-                <span className="logo-tagline">Pixel War</span>
+                <span className="logo-tagline">Pixel Art</span>
               </div>
             </div>
           </NavLink>
