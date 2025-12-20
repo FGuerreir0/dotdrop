@@ -181,10 +181,29 @@ function Canvas({ width = 500, height = 500, pixelSize = 10, onPixelClick }) {
     setCanPlace(false);
     setCooldown(15);
 
-    const { error } = await supabase
-      .from('pixels202508')
-      .upsert({ x, y, color: selectedColor, updated_by: 'guest' });
-    if (error) console.error("Error saving pixel:", error);
+    try {
+      // Call secure server endpoint instead of direct Supabase
+      const serverUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:3000';
+      const response = await fetch(`${serverUrl}/place-pixel`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ x, y, color: selectedColor })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        console.error('Server error:', data.error);
+        if (data.remainingTime) {
+          // Server-side rate limit kicked in
+          setCooldown(data.remainingTime);
+        }
+      }
+    } catch (error) {
+      console.error('Error placing pixel:', error);
+    }
   };
 
   const handleMouseDown = (e) => {
