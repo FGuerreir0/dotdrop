@@ -42,9 +42,9 @@ Built with Vite.js + React, Canvas API, WebSockets, and Supabase for persistence
  - [X] Add first ws interaction
  - [X] Show saved pixels colors
  - [X] Save pixels on Supabase
- - [ ] Pixel cooldown timer (prevent spamming).
- - [ ] Improve Front-end & mobile usage.
- - [ ] Bigger grid with zoom & pan.
+ - [X] Pixel cooldown timer (prevent spamming).
+ - [X] Improve Front-end & mobile usage.
+ - [X] Zoom & pan controls.
  - [ ] Public live gallery showing monthly canvas.
 
 ## Usage
