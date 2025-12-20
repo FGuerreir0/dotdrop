@@ -183,7 +183,7 @@ function Canvas({ width = 500, height = 500, pixelSize = 10, onPixelClick }) {
 
     try {
       // Call secure server endpoint instead of direct Supabase
-      const serverUrl = import.meta.env.VITE_WS_URL || 'http://localhost:3000';
+      const serverUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:3000';
       const response = await fetch(`${serverUrl}/place-pixel`, {
         method: 'POST',
         headers: {
