@@ -51,6 +51,7 @@ function Navbar({ online }) {
           <div className={`online-indicator ${showStats ? 'show' : ''}`}>
             <span className={`status-dot ${online > 0 ? 'online' : 'offline'}`}></span>
             <span className="status-count">{online > 0 ? online : 0}</span>
+            <span className='nav-info-label'>Players</span>
           </div>
         </div>
       </div>
