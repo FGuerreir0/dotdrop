@@ -179,7 +179,7 @@ function Canvas({ width = 500, height = 500, pixelSize = 10, onPixelClick }) {
 
     // Start cooldown
     setCanPlace(false);
-    setCooldown(5);
+    setCooldown(1); //1 second cooldown
 
     try {
       // Call secure server endpoint instead of direct Supabase
