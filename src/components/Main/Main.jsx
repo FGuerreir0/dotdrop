@@ -32,7 +32,7 @@ function Main() {
           </div>
           <div className="rule-line">
             <span className="rule-icon">▪</span>
-            <span>5 second cooldown between placements</span>
+            <span>1 second cooldown between placements</span>
           </div>
           <div className="rule-line">
             <span className="rule-icon">□</span>
